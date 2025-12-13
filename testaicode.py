@@ -2,6 +2,8 @@ import tkinter as tk
 # 匯入 tkinter 並簡寫為 tk
 
 import tkinter.messagebox as msg
+# 測試：輸出 hello 到終端
+print("hello")
 # 匯入 tkinter 的訊息視窗模組 messagebox
 
 window = tk.Tk()
@@ -54,9 +56,11 @@ def login():
 
     else:
         # 若帳號密碼都有輸入
-
-        msg.showinfo("登入成功", "帳號與密碼已輸入！")
-        # 顯示成功訊息（可自行改成真正的驗證功能）
+        # 建立一個新視窗顯示 hello
+        top = tk.Toplevel(window)
+        top.title("歡迎")
+        tk.Label(top, text="hello", font=("Arial", 14)).pack(padx=20, pady=10)
+        tk.Button(top, text="關閉", command=top.destroy).pack(pady=(0,10))
 
 login_button = tk.Button(window, text="登入", command=login)
 # 建立登入按鈕，按下後執行 login 函式
